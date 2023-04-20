@@ -1,6 +1,6 @@
 <script>
 import HeaderComponent from './components/HeaderComponent.vue';
-import MainComponent from './components/MainComponent.vue';
+import PrintCards from './components/PrintCards.vue';
 import axios from 'axios';
 import { store } from './store/store';
 
@@ -8,7 +8,7 @@ import { store } from './store/store';
 export default {
     components: {
         HeaderComponent,
-        MainComponent
+        PrintCards
     },
     data() {
         return {
@@ -23,6 +23,8 @@ export default {
             }
             axios.get(urlFilm, options).then((el) => {
                 console.log(el.data.results);
+                store.film = el.data.results
+                console.log(store.film);
             })
         }
     },
@@ -34,9 +36,14 @@ export default {
 
 <template>
     <HeaderComponent />
-    <MainComponent />
+    <main class="p-5">
+        <PrintCards />
+    </main>
 </template>
 
 <style scoped>
-
+    main{
+        width: 100%;
+        height: calc(100vh - 100px);
+    }
 </style>
