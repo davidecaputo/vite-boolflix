@@ -4,6 +4,7 @@
             <h1>Netflix</h1>
             <form>
                 <input type="text" name="" id="">
+                <button class="btn btn-success">Ricerca</button>
             </form>
         </div>
     </header>
