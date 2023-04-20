@@ -18,8 +18,11 @@ export default {
     methods: {
         getFilm() {
             const urlFilm = store.baseUrl + store.endpoint.film;
-            axios.get(urlFilm).then((el) => {
-                console.log(el);
+            const options = {
+                params: store.params
+            }
+            axios.get(urlFilm, options).then((el) => {
+                console.log(el.data.results);
             })
         }
     },
