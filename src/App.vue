@@ -24,7 +24,6 @@ export default {
             axios.get(urlFilm, options).then((el) => {
                 console.log(el.data.results);
                 store.film = el.data.results
-                console.log(store.film);
             })
         }
     },
@@ -35,7 +34,7 @@ export default {
 </script>
 
 <template>
-    <HeaderComponent />
+    <HeaderComponent @search-text="getFilm" />
     <main class="p-5">
         <PrintCards />
     </main>
@@ -45,5 +44,6 @@ export default {
     main{
         width: 100%;
         height: calc(100vh - 100px);
+        background-color: lightgray;
     }
 </style>

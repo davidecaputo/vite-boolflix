@@ -1,6 +1,6 @@
 <template>
     <h2>Film:</h2>
-    <div v-for="(film, index) of store.film" :key="index">
+    <div v-for="(film, index) of store.film" :key="film.id">
         <span>{{ film.title }} - {{ film.original_title }} - {{ film.original_language }} - {{ film.vote_average }}</span>
     </div>
 </template>
