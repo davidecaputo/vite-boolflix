@@ -25,16 +25,30 @@ export default {
                 console.log(el.data.results);
                 store.film = el.data.results
             })
+        },
+        getSeriesTv(){
+            const urlFilm = store.baseUrl + store.endpoint.serie;
+            const options = {
+                params: store.params
+            }
+            axios.get(urlFilm, options).then((el) => {
+                console.log(el.data.results);
+                store.serieTv = el.data.results
+            })
+        },
+        getSearchResults(){
+            this.getFilm();
+            this.getSeriesTv();
         }
+        
     },
     mounted () {
-        this.getFilm();
     },
 };
 </script>
 
 <template>
-    <HeaderComponent @search-text="getFilm" />
+    <HeaderComponent @search-text="getSearchResults" />
     <main class="p-5">
         <PrintCards />
     </main>
@@ -45,5 +59,6 @@ export default {
         width: 100%;
         height: calc(100vh - 100px);
         background-color: lightgray;
+        overflow: auto;
     }
 </style>

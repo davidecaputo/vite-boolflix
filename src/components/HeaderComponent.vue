@@ -3,7 +3,7 @@
         <div class="d-flex justify-content-between align-items-center h-100 px-4">
             <h1>Netflix</h1>
             <form class="d-flex gap-2" @submit.prevent="$emit('searchText')">
-                <input type="text" name="contentSearch" id="contentSearch" class="form-control bg-black rounded-5 text-white" placeholder="Film, serie TV, generi" @keyup.enter.self="$emit('searchText')" v-model="store.params.query">
+                <input type="text" name="contentSearch" id="contentSearch" class="form-control bg-black rounded-5 text-white" placeholder="Film, serie TV, generi" @keyup.enter="$emit('searchText')" v-model="store.params.query">
                 <button type="submit" class="btn btn-success">Ricerca</button>
             </form>
         </div>
