@@ -17,9 +17,9 @@
     <h2 class="pb-4">Serie TV:</h2>
     <div class="row">
         <div v-for="(serie, index) of store.serieTv" :key="serie.id" class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card mb-4">
-                <img :src="store.imageUrl + serie.poster_path" alt="">
-                <img src="https://www.cuneo24.it/photogallery_new/images/2018/07/cinema-film-generica-4657.660x368.jpg" alt="" v-if="!serie.poster_path">
+            <div class="card mb-4 w-100 h-100">
+                <img :src="store.imageUrl + serie.poster_path" alt="" v-if="serie.poster_path">
+                <img src="https://www.cuneo24.it/photogallery_new/images/2018/07/cinema-film-generica-4657.660x368.jpg" alt="" class="image-not-found" v-else>
                 <div class="card-body">
                     <h4>{{ serie.name }}</h4>
                     <p>{{ serie.original_title }}</p>
@@ -47,11 +47,12 @@ import "/node_modules/flag-icons/css/flag-icons.min.css";
 <style lang="scss" scoped>
     .card{
         &:hover{
+            transform: rotateY(360deg);
             box-shadow: 4px 4px 20px 10px;
-            transition: 0.8s;
+            transition: 2s;
         }
         &:not( :hover ){
-            transition: 0.8s;
+            transition: 1s;
         }
         & .card-body{
             position: absolute;
@@ -65,7 +66,7 @@ import "/node_modules/flag-icons/css/flag-icons.min.css";
         & .card-body:hover{
             opacity: 1;
             background-color: #181818;
-            transition: 0.8s;
+            transition: 1s;
         }
         & img.image-not-found{
             width: 100%;
